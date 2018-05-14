@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      BLE Devices
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="scan()">
+        Scan
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+   <ion-list> 
+    <button ion-item *ngFor="let device of devices;let i=index;" (click)="deviceSelected(device)">
+      <h2>{{i + 1}}. Device Name {{ device.name || 'Unnamed' }}</h2>
+      <p>Device ID {{ device.id }}</p>
+      <p>RSSI {{ device.rssi }}</p>
+    </button>  
+   </ion-list> 
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>
